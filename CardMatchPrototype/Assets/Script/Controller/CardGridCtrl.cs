@@ -19,11 +19,11 @@ public class CardGridOptions {
 }
 
 public class CardGridCtrl : MonoBehaviour
-{
-    public CardCtrl Card;
-
+{ 
     private GridLayoutGroup _gridLayout;
     private RectTransform _rectTransform;
+
+    private CardCtrl _selectedcard = null;
 
     public void Init(CardGridOptions options) {
         this._gridLayout = this.GetComponent<GridLayoutGroup>();
@@ -48,9 +48,31 @@ public class CardGridCtrl : MonoBehaviour
         }
 
         for (int i = 0; i < options.totalCardCount; i++) {
-            GameObject card = Instantiate(Card.gameObject);
+            GameObject card = Instantiate(GameController.instance.ResourceData.Card.gameObject) as GameObject;
             card.transform.SetParent(this.transform);
             card.transform.localScale = Vector3.one;
+
+            CardCtrl cardCtrl = card.GetComponent<CardCtrl>();
+            cardCtrl.Init(new CardOption {
+                index = i,
+                id = "test",
+                callback = CheckForMatchCard
+            });;
+        }
+    }
+
+    private void CheckForMatchCard(CardCtrl card) {
+        if (this._selectedcard == null) {
+            this._selectedcard = card;
+        } else {
+            if (this._selectedcard.GetCardId() == card.GetCardId()) {
+                this._selectedcard.OnCardMatched();
+                card.OnCardMatched();
+            } else {
+                this._selectedcard.ResetCard();
+                card.ResetCard();
+            }
+            this._selectedcard = null;
         }
     }
 }

@@ -63,6 +63,7 @@
     <Compile Include="Assets/Script/lib/ObjectFlip.cs" />
     <Compile Include="Assets/Script/Controller/CardGridCtrl.cs" />
     <Compile Include="Assets/Script/Controller/CardCtrl.cs" />
+    <Compile Include="Assets/Script/ScriptableObject/ResourceData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

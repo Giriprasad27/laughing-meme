@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd3942de360c34ef79ea59653f7f1e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResourceData: {fileID: 11400000, guid: 885da82c25a144fe6be31e2bc7e1268b, type: 2}
   CardGridCtrl: {fileID: 1268649251}
 --- !u!4 &198701971
 Transform:
@@ -682,7 +683,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92e928657cfe6400c94f59a1cec49056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Card: {fileID: 5563985662321786142, guid: 17c85068bd1f24b0c8307b449d70f7d8, type: 3}
 --- !u!114 &1268649252
 MonoBehaviour:
   m_ObjectHideFlags: 0
