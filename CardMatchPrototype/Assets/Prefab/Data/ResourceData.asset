@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3546bb3d96c4c49f184098aef521da22, type: 3}
   m_Name: ResourceData
   m_EditorClassIdentifier: 
+  CardGridCtrl: {fileID: 8053955975456922103, guid: 150680aca01584688b329a7b99145b84, type: 3}
   CardCtrl: {fileID: 5563985662321786142, guid: 17c85068bd1f24b0c8307b449d70f7d8, type: 3}
   IconSprites:
   - {fileID: -1632687187, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
@@ -32,3 +33,10 @@ MonoBehaviour:
   - {fileID: -1097912580, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
   - {fileID: 785483963, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
   - {fileID: 316429982, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  LevelObjects:
+  - {fileID: 11400000, guid: 69273c7191fb44d17b9a47ea0bc333b8, type: 2}
+  - {fileID: 11400000, guid: 84b17cd7b652f456591b589d91fd8bf9, type: 2}
+  - {fileID: 11400000, guid: a2772ef2ce8464b54aca456f9ab46bd1, type: 2}
+  - {fileID: 11400000, guid: 82a403adefcc64d23a15311bafd1a8b8, type: 2}
+  MenuScreen: {fileID: 6449150598703439506, guid: 5e98f7489e2e14fb4a21c1013641f7d1, type: 3}
+  inGameUIScreen: {fileID: 609944022246721978, guid: 5ca892f7295cb4bb09a5065e2b99de80, type: 3}

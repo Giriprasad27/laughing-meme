@@ -4,22 +4,38 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
-    public static GameController instance;
-    private void Awake() {
-        if (instance == null) {
-            instance = this;
-        }
-    }
+    public GameObject GameCanvas;
+    public UiController UiController;
 
-    public ResourceData ResourceData;
-    public CardGridCtrl CardGridCtrl;
+    private CardGridCtrl _cardGridCtrl;
+
+    private Difficulty _levelDifficulty = Difficulty.Easy;
 
     private void Start() {
-        CardGridCtrl.Init(new CardGridOptions {
-            rowCount = 6,
-            totalCardCount = 36,
-            spacing = 20,
-            Padding = 20
+        this.UiController.Init(OnUIControllerCallBack);
+    }
+
+    private void RenderLevel() {
+        this._cardGridCtrl = Instantiate(ResourceCtrl.instance.ResourceData.CardGridCtrl) as CardGridCtrl;
+        this._cardGridCtrl.gameObject.transform.SetParent(GameCanvas.transform);
+        this._cardGridCtrl.gameObject.transform.localScale = Vector3.one;
+        this._cardGridCtrl.Init(new CardGridOptions {
+            LevelObject = ResourceCtrl.instance.ResourceData.LevelObjects[(int)this._levelDifficulty]
         });
     }
+
+    private void OnUIControllerCallBack(string key) {
+        switch (key) {
+            case "GoToGame":
+            this.RenderLevel();
+            break;
+        }
+    }
+}
+
+public enum Difficulty {
+    Easy = 0,
+    Intermidate =1,
+    Expert = 2,
+    Professional = 3
 }

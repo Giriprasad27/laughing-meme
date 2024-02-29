@@ -4,14 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CardGridOptions {
-    public int rowCount = 1;
-    public int totalCardCount = 1;
-    public float spacing = 20;
-    public int Padding = 20;
-
+    public LevelObject LevelObject;
     public int ColumnCount() {
-        int numColumns = totalCardCount / rowCount;
-        if (totalCardCount % rowCount != 0) {
+        int numColumns = LevelObject.totalCardCount / LevelObject.rowCount;
+        if (LevelObject.totalCardCount % LevelObject.rowCount != 0) {
             numColumns++;
         }
         return numColumns;
@@ -38,30 +34,30 @@ public class CardGridCtrl : MonoBehaviour
         float cardSize = 1;
         if (this._rectTransform != null) {
             float gridHeight = this._rectTransform.rect.height;
-            gridHeight = gridHeight - ((this._options.Padding * 2) + ((this._options.rowCount - 1) * this._options.spacing));
-            cardSize = gridHeight / this._options.rowCount;
+            gridHeight = gridHeight - ((this._options.LevelObject.Padding * 2) + ((this._options.LevelObject.rowCount - 1) * this._options.LevelObject.spacing));
+            cardSize = gridHeight / this._options.LevelObject.rowCount;
             if (cardSize * this._options.ColumnCount() > gridHeight) {
                 float gridwidth = this._rectTransform.rect.width;
-                gridwidth = gridwidth - ((this._options.Padding * 2) + ((this._options.ColumnCount() - 1) * this._options.spacing));
+                gridwidth = gridwidth - ((this._options.LevelObject.Padding * 2) + ((this._options.ColumnCount() - 1) * this._options.LevelObject.spacing));
                 cardSize = gridwidth / this._options.ColumnCount();
             }
         }
 
         if (this._gridLayout != null) {
             this._gridLayout.cellSize = new Vector2(cardSize, cardSize);
-            this._gridLayout.constraintCount = this._options.rowCount;
-            this._gridLayout.spacing = Vector2.one * this._options.spacing;
-            this._gridLayout.padding.top = this._gridLayout.padding.bottom = this._gridLayout.padding.left = this._gridLayout.padding.right = this._options.Padding;
+            this._gridLayout.constraintCount = this._options.LevelObject.rowCount;
+            this._gridLayout.spacing = Vector2.one * this._options.LevelObject.spacing;
+            this._gridLayout.padding.top = this._gridLayout.padding.bottom = this._gridLayout.padding.left = this._gridLayout.padding.right = this._options.LevelObject.Padding;
         }
     }
 
     private void RenderCards() {
 
-        List<Sprite> randIcons = this.GetRandomIcons(this._options.totalCardCount / 2);
+        List<Sprite> randIcons = this.GetRandomIcons(this._options.LevelObject.totalCardCount / 2);
         int j = 0;
         int counter = 0;
         List<CardOption> cardOptionsList = new List<CardOption>();
-        for (int i = 0; i < this. _options.totalCardCount; i++) {
+        for (int i = 0; i < this. _options.LevelObject.totalCardCount; i++) {
             CardOption cardOption = new CardOption {
                 id = j,
                 icon = randIcons[j],
@@ -75,8 +71,8 @@ public class CardGridCtrl : MonoBehaviour
             cardOptionsList.Add(cardOption);
         }
         cardOptionsList = this.ShuffleCards(cardOptionsList);
-        for (int i = 0; i < this._options.totalCardCount; i++) {
-            GameObject card = Instantiate(GameController.instance.ResourceData.CardCtrl.gameObject) as GameObject;
+        for (int i = 0; i < this._options.LevelObject.totalCardCount; i++) {
+            GameObject card = Instantiate(ResourceCtrl.instance.ResourceData.CardCtrl.gameObject) as GameObject;
             card.transform.SetParent(this.transform);
             card.transform.localScale = Vector3.one;
             CardCtrl cardCtrl = card.GetComponent<CardCtrl>();
@@ -101,10 +97,10 @@ public class CardGridCtrl : MonoBehaviour
         int i = 0;
         while (i < count) {
             flag: int rand = UnityEngine.Random.RandomRange(0, count);
-            if (icons.Contains(GameController.instance.ResourceData.IconSprites[rand])) {
+            if (icons.Contains(ResourceCtrl.instance.ResourceData.IconSprites[rand])) {
                 goto flag;
             }
-            icons.Add(GameController.instance.ResourceData.IconSprites[rand]);
+            icons.Add(ResourceCtrl.instance.ResourceData.IconSprites[rand]);
             i++;
         }
         return icons;
