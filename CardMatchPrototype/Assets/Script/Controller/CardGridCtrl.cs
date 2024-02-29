@@ -8,6 +8,14 @@ public class CardGridOptions {
     public int totalCardCount = 1;
     public float spacing = 20;
     public int Padding = 20;
+
+    public int ColumnCount() {
+        int numColumns = totalCardCount / rowCount;
+        if (totalCardCount % rowCount != 0) {
+            numColumns++;
+        }
+        return numColumns;
+    }
 }
 
 public class CardGridCtrl : MonoBehaviour
@@ -25,6 +33,11 @@ public class CardGridCtrl : MonoBehaviour
             float gridHeight = this._rectTransform.rect.height;
             gridHeight = gridHeight - ((options.Padding * 2) + ((options.rowCount - 1) * options.spacing));
             cardSize = gridHeight / options.rowCount;
+            if (cardSize * options.ColumnCount() > gridHeight) {
+                float gridwidth = this._rectTransform.rect.width;
+                gridwidth = gridwidth - ((options.Padding * 2) + ((options.ColumnCount() - 1) * options.spacing));
+                cardSize = gridwidth / options.ColumnCount();
+            }
         }
 
         if (this._gridLayout != null) {
