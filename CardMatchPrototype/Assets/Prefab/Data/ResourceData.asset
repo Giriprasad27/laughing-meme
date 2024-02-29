@@ -12,4 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3546bb3d96c4c49f184098aef521da22, type: 3}
   m_Name: ResourceData
   m_EditorClassIdentifier: 
-  Card: {fileID: 5563985662321786142, guid: 17c85068bd1f24b0c8307b449d70f7d8, type: 3}
+  CardCtrl: {fileID: 5563985662321786142, guid: 17c85068bd1f24b0c8307b449d70f7d8, type: 3}
+  IconSprites:
+  - {fileID: -1632687187, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: 904737750, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: -1497995482, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: 161781917, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: -380966471, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: 1315910697, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: 1580842247, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: 377371493, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: 590702905, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: -1554014663, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: 847521761, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: -1197940099, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: -499132598, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: -89108222, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: 455265137, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: -1097912580, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: 785483963, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
+  - {fileID: 316429982, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}

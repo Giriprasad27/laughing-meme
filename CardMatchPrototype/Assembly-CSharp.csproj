@@ -56,14 +56,16 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Script/Controller/GameController.cs" />
+    <Compile Include="Assets/Script/Controller/SoundController.cs" />
+    <Compile Include="Assets/Script/Controller/CardCtrl.cs" />
+    <Compile Include="Assets/Script/lib/ObjectFlip.cs" />
+    <Compile Include="Assets/Script/ScriptableObject/LevelObject.cs" />
+    <Compile Include="Assets/Script/ScriptableObject/ResourceData.cs" />
+    <Compile Include="Assets/Script/Controller/CardGridCtrl.cs" />
+    <Compile Include="Assets/Script/ScriptableObject/CardObject.cs" />
     <Compile Include="Assets/Script/Controller/InputController.cs" />
     <Compile Include="Assets/Script/Controller/UiController.cs" />
-    <Compile Include="Assets/Script/Controller/SoundController.cs" />
-    <Compile Include="Assets/Script/lib/ObjectFlip.cs" />
-    <Compile Include="Assets/Script/Controller/CardGridCtrl.cs" />
-    <Compile Include="Assets/Script/Controller/CardCtrl.cs" />
-    <Compile Include="Assets/Script/ScriptableObject/ResourceData.cs" />
+    <Compile Include="Assets/Script/Controller/GameController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -4,44 +4,58 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 public class CardOption {
-    public int index;
-    public string id;
+    public int id;
+    public Sprite icon;
     public Action<CardCtrl> callback;
 }
 
-public class CardCtrl : MonoBehaviour
-{
+public class CardCtrl : MonoBehaviour {
+    public GameObject ActiveObject;
+    public Image Icon;
     private Button _button;
     private Image _image;
     private CardOption _option;
-    private Action _callback;
+
+    private float _resetTime = 0.75f;
 
     public void Init(CardOption option) {
         this._option = option;
         this._button = this.GetComponent<Button>();
         this._image = this.GetComponent<Image>();
+        this.Icon.sprite = this._option.icon;
         if (this._button != null) {
             this._button.onClick.AddListener(OnCardButtonClick);
         }
+        this._ResetCard();
     }
 
-    public string GetCardId() {
+    public int GetCardId() {
         if (this._option!= null) {
             return this._option.id;
         } else {
-            return null;
+            return 0;
         }
     }
 
     public void ResetCard() {
-
+        Invoke("_ResetCard",this._resetTime);
+    }
+    private void _ResetCard() {
+        this._button.enabled = true;
+        this.ActiveObject.SetActive(false);
     }
 
     public void OnCardMatched() {
+        Invoke("_OnCardMatched", this._resetTime);
+    }
+    private void _OnCardMatched() {
         this._image.enabled = false;
+        this.ActiveObject.SetActive(false);
     }
 
     private void OnCardButtonClick() {
+        this._button.enabled = false;
+        this.ActiveObject.SetActive(true);
         this._option.callback?.Invoke(this);
     }
 }

@@ -16,8 +16,8 @@ public class GameController : MonoBehaviour {
 
     private void Start() {
         CardGridCtrl.Init(new CardGridOptions {
-            rowCount = 5,
-            totalCardCount = 40,
+            rowCount = 6,
+            totalCardCount = 36,
             spacing = 20,
             Padding = 20
         });

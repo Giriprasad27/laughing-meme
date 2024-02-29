@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a76cfdc33a25449d4869189110447f87
+guid: 872091ddfc31740ba956e6d6420cc003
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -141,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FoodSprite_0
+      name: FoodISprite2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 384
-        width: 128
-        height: 128
+        y: 378.6667
+        width: 170.66667
+        height: 189.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af24f10b8b4414171ac6c936ee820b50
-      internalID: 1127687849
+      spriteID: 5e323406f11d5434aa1ef4801b498c8f
+      internalID: -1632687187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FoodSprite_1
+      name: FoodISprite2_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 384
-        width: 128
-        height: 128
+        x: 170
+        y: 378.6667
+        width: 170.66667
+        height: 189.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,20 +176,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 213357059bda543e481efa6e88442930
-      internalID: 154197407
+      spriteID: cc64b48dca3154635ab3dc5e7c2f1c66
+      internalID: 904737750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FoodSprite_2
+      name: FoodISprite2_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 384
-        width: 128
-        height: 128
+        x: 340
+        y: 378.6667
+        width: 170.66667
+        height: 189.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,20 +197,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0da19a38fea8a45a69c0641a22df7b2b
-      internalID: -1349920893
+      spriteID: 348b7c5744db745e1abb8f08800897e8
+      internalID: -1497995482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FoodSprite_3
+      name: FoodISprite2_3
       rect:
         serializedVersion: 2
-        x: 384
-        y: 384
-        width: 128
-        height: 128
+        x: 510
+        y: 378.6667
+        width: 170.66667
+        height: 189.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +218,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 462703d7933be4c248962c8a61f2ec80
-      internalID: 762451583
+      spriteID: 0f71399569b554175b6c4e45202710ff
+      internalID: 161781917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FoodSprite_4
+      name: FoodISprite2_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
-        width: 128
-        height: 128
+        x: 680
+        y: 378.6667
+        width: 170.66667
+        height: 189.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,20 +239,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23a3589a2198143f39500183fae0a3fd
-      internalID: -488148992
+      spriteID: bde633392c97a441ba8c79ab3d3040e7
+      internalID: -380966471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FoodSprite_5
+      name: FoodISprite2_5
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 128
+        x: 850
+        y: 378.6667
+        width: 170.66667
+        height: 189.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,62 +260,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5715cb957d1204b25b01d0e6b249b79d
-      internalID: 418607028
+      spriteID: dbdf9436822344c7b8f547dd7daf9098
+      internalID: 1315910697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FoodSprite_6
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 005f837d5c344401b992ce327b468ac0
-      internalID: 1357936357
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FoodSprite_7
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 380e49edb2e9f4801a8d3e46fe1c4bb1
-      internalID: 1884748918
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FoodSprite_8
+      name: FoodISprite2_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 128
-        height: 128
+        y: 189.66667
+        width: 170.66667
+        height: 189.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -323,20 +281,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d112b366dd4a457e8c6eff397ee318d
-      internalID: 1861999737
+      spriteID: 2f3e4f836452444c59fa78172fea7d99
+      internalID: 1580842247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FoodSprite_9
+      name: FoodISprite2_7
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
+        x: 170
+        y: 189.66667
+        width: 170.66667
+        height: 189.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,20 +302,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d55b8e87eba944246a450978d0ccd235
-      internalID: -13135788
+      spriteID: e54f3e65b307b41b8aae00658d78aee9
+      internalID: 377371493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FoodSprite_10
+      name: FoodISprite2_8
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
-        width: 128
-        height: 128
+        x: 340
+        y: 189.66667
+        width: 170.66667
+        height: 189.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -365,20 +323,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00c54bc2f56c84d068a1afc02b76fa2b
-      internalID: 679512803
+      spriteID: 427dfde90f24644a299611eb7bb3770d
+      internalID: 590702905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FoodSprite_11
+      name: FoodISprite2_9
       rect:
         serializedVersion: 2
-        x: 384
-        y: 128
-        width: 128
-        height: 128
+        x: 510
+        y: 189.66667
+        width: 170.66667
+        height: 189.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -386,20 +344,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6895ca77d7b0e4aad99f7034da40b204
-      internalID: -2085590993
+      spriteID: 68effde28bb9b4cb59a1c52e6dd5b4cc
+      internalID: -1554014663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FoodSprite_12
+      name: FoodISprite2_10
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 189.66667
+        width: 170.66667
+        height: 189.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9201f97e8dc3c4f14abb63cb8094c142
+      internalID: 847521761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodISprite2_11
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 189.66667
+        width: 170.66667
+        height: 189.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1be92af092627469191df1c6c2d08b09
+      internalID: -1197940099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodISprite2_12
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 128
-        height: 128
+        y: 0.66667175
+        width: 170.66667
+        height: 189.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -407,20 +407,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d09e9be721d0d43fa8006702dd2e0770
-      internalID: -1474200532
+      spriteID: d09eaff0839dc41d399e346dc319ba91
+      internalID: -499132598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FoodSprite_13
+      name: FoodISprite2_13
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
+        x: 170
+        y: 0.66667175
+        width: 170.66667
+        height: 189.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -428,20 +428,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e21db8e5ac3c40ccb771c067b213eac
-      internalID: 595754132
+      spriteID: 3de3e50acab1c4c4fb6ff51f262cbf1a
+      internalID: -89108222
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FoodSprite_14
+      name: FoodISprite2_14
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
+        x: 340
+        y: 0.66667175
+        width: 170.66667
+        height: 189.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -449,20 +449,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c79b8e9e7cde4d14a9c8b0e27d7c4e0
-      internalID: -1508731582
+      spriteID: 059934c5b5f07426c80f9ee461b4ed9b
+      internalID: 455265137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FoodSprite_15
+      name: FoodISprite2_15
       rect:
         serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
+        x: 510
+        y: 0.66667175
+        width: 170.66667
+        height: 189.33333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -470,8 +470,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0d9a6fab478746ed853675dd255780a
-      internalID: -865942141
+      spriteID: 7d7a96bb67b7f481bb2525d76ade2cd1
+      internalID: -1097912580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodISprite2_16
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 0.66667175
+        width: 170.66667
+        height: 189.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7417112f547c04fc4b3ceb5d17ea3ea6
+      internalID: 785483963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodISprite2_17
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 0.66667175
+        width: 170.66667
+        height: 189.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35196a51dbaaa4c4a9492da86ad0a935
+      internalID: 316429982
       vertices: []
       indices: 
       edges: []
@@ -487,22 +529,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FoodSprite_13: 595754132
-      FoodSprite_12: -1474200532
-      FoodSprite_0: 1127687849
-      FoodSprite_14: -1508731582
-      FoodSprite_2: -1349920893
-      FoodSprite_1: 154197407
-      FoodSprite_11: -2085590993
-      FoodSprite_6: 1357936357
-      FoodSprite_7: 1884748918
-      FoodSprite_15: -865942141
-      FoodSprite_8: 1861999737
-      FoodSprite_3: 762451583
-      FoodSprite_4: -488148992
-      FoodSprite_10: 679512803
-      FoodSprite_9: -13135788
-      FoodSprite_5: 418607028
+      FoodISprite2_3: 161781917
+      FoodISprite2_12: -499132598
+      FoodISprite2_13: -89108222
+      FoodISprite2_15: -1097912580
+      FoodISprite2_14: 455265137
+      FoodISprite2_11: -1197940099
+      FoodISprite2_2: -1497995482
+      FoodISprite2_8: 590702905
+      FoodISprite2_10: 847521761
+      FoodISprite2_9: -1554014663
+      FoodISprite2_17: 316429982
+      FoodISprite2_7: 377371493
+      FoodISprite2_4: -380966471
+      FoodISprite2_16: 785483963
+      FoodISprite2_6: 1580842247
+      FoodISprite2_1: 904737750
+      FoodISprite2_5: 1315910697
+      FoodISprite2_0: -1632687187
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

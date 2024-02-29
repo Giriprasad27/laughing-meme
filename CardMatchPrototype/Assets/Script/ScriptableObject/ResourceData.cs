@@ -5,5 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewData", menuName = "ScriptableObjects/ResourceData")]
 public class ResourceData : ScriptableObject {
 
-    public CardCtrl Card;
+    public CardCtrl CardCtrl;
+    public List<Sprite> IconSprites;
 }
