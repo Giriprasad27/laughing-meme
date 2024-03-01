@@ -8,6 +8,7 @@ public class CardObject : ScriptableObject {
     public int score;
     public CardType cardType;
     public int specialValue;
+    public int specialtimer;
     public Sprite specialIcon;
 }
 

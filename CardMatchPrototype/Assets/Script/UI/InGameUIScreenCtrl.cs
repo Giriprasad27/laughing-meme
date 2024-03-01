@@ -12,8 +12,10 @@ public class InGameUIScreenCtrl : UIScreenBaseCtrl {
     public GameObject HeatModeObject;
     public Slider HeatModeSlider;
     public TextMeshProUGUI HeatModeValText;
+    public Animator ScoreAnimator;
 
     private Action<string> _callback;
+    private Coroutine comboEffectRoutine;
 
     private void Awake() {
         this.PauseButton.onClick.AddListener(OnPauseButtonClick);
@@ -23,6 +25,28 @@ public class InGameUIScreenCtrl : UIScreenBaseCtrl {
         this._callback = callback;
         this.SetScreen();
         this._Init();
+    }
+
+    public void EnableComboEffectUI(float timer, float val) {
+        this.HeatModeValText.text = val.ToString() + "x";
+        if (comboEffectRoutine != null) {
+            StopCoroutine(comboEffectRoutine);
+        }
+        comboEffectRoutine = StartCoroutine(ActivateComboRewards(timer));
+    }
+
+    private IEnumerator ActivateComboRewards(float timer) {
+        HeatModeObject.SetActive(true);
+        yield return null;
+        float elapsedTime = 0;
+        while (elapsedTime < timer) {
+            float sliderValue = Mathf.Lerp(1, 0, elapsedTime / timer);
+            this.HeatModeSlider.value = sliderValue;
+            yield return null;
+            elapsedTime += Time.deltaTime;
+        }
+        this.HeatModeSlider.value = 0;
+        this.HeatModeObject.SetActive(false);
     }
 
     private void _Init() {
@@ -40,6 +64,7 @@ public class InGameUIScreenCtrl : UIScreenBaseCtrl {
 
     private void OnScoreUpdate(int score) {
         ScoreText.text = "Score: "+score.ToString("D4");
+        ScoreAnimator.SetTrigger("ping");
     }
 
     private void OnDisable() {

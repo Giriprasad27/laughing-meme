@@ -15,5 +15,7 @@ MonoBehaviour:
   icon: {fileID: -89108222, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
   id: 13
   score: 10
-  cardType: 0
-  specialValue: 0
+  cardType: 1
+  specialValue: 2
+  specialtimer: 5
+  specialIcon: {fileID: 21300000, guid: 6e03e0936674d46fd8895e12bd6516ce, type: 3}

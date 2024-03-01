@@ -37,6 +37,12 @@ public class UiController : MonoBehaviour
         this.RenderGameFinishScreen();
     }
 
+    public void EnableComboEffectUI(float timer, float val) {
+        if (this._inGameUIScreen != null) {
+            this._inGameUIScreen.EnableComboEffectUI(timer, val);
+        }
+    }
+
     private void RenderGameFinishScreen() {
         if (this._gameCompleteScreen == null) {
             this._gameCompleteScreen = Instantiate(ResourceCtrl.instance.ResourceData.GameCompleteScreen) as GameCompleteScreenCtrl;

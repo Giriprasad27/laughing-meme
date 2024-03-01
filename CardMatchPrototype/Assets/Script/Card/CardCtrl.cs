@@ -90,9 +90,6 @@ public class CardCtrl : MonoBehaviour {
     }
     private void _OnCardMatched() {
         this.DisableCard();
-        if (GameController.instance != null) {
-            GameController.instance.CardClaimed(this._option.cardData.score);
-        }
     }
 
     private void OnCardButtonClick() {

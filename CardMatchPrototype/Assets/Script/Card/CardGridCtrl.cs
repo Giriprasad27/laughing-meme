@@ -15,6 +15,7 @@ public class CardGridOptions {
         }
         return numColumns;
     }
+    public Action<CardObject> scoreCalback;
 }
 
 public class CardGridCtrl : MonoBehaviour
@@ -207,6 +208,7 @@ public class CardGridCtrl : MonoBehaviour
         int index = this._cardOptionsList.IndexOf(cardOption);
         this._cardClaimStatus[index] = true;
         this._activeCardCount --;
+        this._options.scoreCalback?.Invoke(cardOption.cardData);
     }
 
     private void OnApplicationQuit() {

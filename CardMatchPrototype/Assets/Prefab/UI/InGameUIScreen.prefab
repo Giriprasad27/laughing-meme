@@ -369,6 +369,7 @@ MonoBehaviour:
   HeatModeObject: {fileID: 4390082036097356841}
   HeatModeSlider: {fileID: 1522547358722220181}
   HeatModeValText: {fileID: 9060456624917368693}
+  ScoreAnimator: {fileID: 6098466114634870918}
 --- !u!95 &5240172751573408566
 Animator:
   serializedVersion: 4
@@ -458,6 +459,7 @@ GameObject:
   - component: {fileID: 8883794607714178521}
   - component: {fileID: 7713904627329848307}
   - component: {fileID: 4639729753827188520}
+  - component: {fileID: 6098466114634870918}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -582,6 +584,26 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!95 &6098466114634870918
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2273689528498647113}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24e33850621a44643a616408ace4155d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3334794104887942059
 GameObject:
   m_ObjectHideFlags: 0

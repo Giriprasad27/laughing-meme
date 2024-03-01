@@ -11,6 +11,9 @@ public class GameController : MonoBehaviour {
     private CardGridCtrl _cardGridCtrl;
 
     private int _score = 0;
+    private bool _isComboBoostActive = false;
+    private int _comboScoreMultiplier = 1;
+    private Coroutine comboRoutine;
 
     private Difficulty _levelDifficulty = Difficulty.Easy;
 
@@ -37,7 +40,8 @@ public class GameController : MonoBehaviour {
         this._cardGridCtrl.Init(new CardGridOptions {
             LevelObject = ResourceCtrl.instance.ResourceData.LevelObjects[(int)this._levelDifficulty],
             callback = OnCardGridCallBack,
-            savedLevelData = gamedata
+            savedLevelData = gamedata,
+            scoreCalback = CardClaimedCallback
         }); ;
         this.UiController.RenderInGameUI();
     }
@@ -88,7 +92,16 @@ public class GameController : MonoBehaviour {
         this.UiController.RenderMenuScreen();
     }
 
-    public void CardClaimed(int score) {
+    private void CardClaimedCallback(CardObject cardData) {
+        if (cardData.cardType == CardType.TwoXCard || cardData.cardType == CardType.ThreeXCard) {
+            this._comboScoreMultiplier = cardData.specialValue;
+            if (comboRoutine != null) {
+                StopCoroutine(comboRoutine);
+            }
+            this.UiController.EnableComboEffectUI(cardData.specialtimer, cardData.specialValue);
+            comboRoutine = StartCoroutine(ActivateComboRewards(cardData.specialtimer));
+        }
+        int score = this._isComboBoostActive ? (cardData.score * this._comboScoreMultiplier) : cardData.score;
         this._score += score;
         if (this.OnScoreUpdate != null) {
             this.OnScoreUpdate(this._score);
@@ -96,6 +109,13 @@ public class GameController : MonoBehaviour {
     }
     public int GetScore() {
         return this._score;
+    }
+    private IEnumerator ActivateComboRewards(float timedelay) {
+        this._isComboBoostActive = true;
+        yield return new WaitForSeconds(timedelay);
+        this._isComboBoostActive = false;
+
+
     }
 }
 
