@@ -4,8 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 public class CardOption {
-    public int id;
-    public Sprite icon;
+    public CardObject cardData;
     public Action<CardCtrl> callback;
 }
 
@@ -18,20 +17,33 @@ public class CardCtrl : MonoBehaviour {
 
     private float _resetTime = 0.75f;
 
-    public void Init(CardOption option) {
-        this._option = option;
+    private void Awake() {
         this._button = this.GetComponent<Button>();
         this._image = this.GetComponent<Image>();
-        this.Icon.sprite = this._option.icon;
         if (this._button != null) {
             this._button.onClick.AddListener(OnCardButtonClick);
         }
+    }
+
+    public void Init(CardOption option) {
+        this._option = option;
+        this.gameObject.SetActive(true);
+        this._image.enabled = true;
+        this.Icon.sprite = this._option.cardData.icon;
         this._ResetCard();
     }
 
-    public int GetCardId() {
+    public string GetCardId() {
         if (this._option!= null) {
-            return this._option.id;
+            return this._option.cardData.id;
+        } else {
+            return null;
+        }
+    }
+
+    public int GetCardScore() {
+        if (this._option != null) {
+            return this._option.cardData.score;
         } else {
             return 0;
         }
@@ -51,6 +63,9 @@ public class CardCtrl : MonoBehaviour {
     private void _OnCardMatched() {
         this._image.enabled = false;
         this.ActiveObject.SetActive(false);
+        if (GameController.instance != null) {
+            GameController.instance.CardClaimed(this._option.cardData);
+        }
     }
 
     private void OnCardButtonClick() {
@@ -58,4 +73,5 @@ public class CardCtrl : MonoBehaviour {
         this.ActiveObject.SetActive(true);
         this._option.callback?.Invoke(this);
     }
+    
 }

@@ -5,4 +5,13 @@ using UnityEngine;
 public class CardObject : ScriptableObject {
     public Sprite icon;
     public string id;
+    public int score;
+    public CardType cardType;
+    public int specialValue;
+}
+
+public enum CardType {
+    NormalCard = 0,
+    TwoXCard = 1,
+    ThreeXCard = 2
 }

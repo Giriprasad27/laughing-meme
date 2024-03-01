@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -1097912580, guid: 872091ddfc31740ba956e6d6420cc003, type: 3}
   id: 15
+  score: 10
+  cardType: 0
+  specialValue: 0

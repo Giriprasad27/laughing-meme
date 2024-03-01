@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CardGridOptions {
     public LevelObject LevelObject;
+    public Action<string> callback;
     public int ColumnCount() {
         int numColumns = LevelObject.totalCardCount / LevelObject.rowCount;
         if (LevelObject.totalCardCount % LevelObject.rowCount != 0) {
@@ -20,6 +22,8 @@ public class CardGridCtrl : MonoBehaviour
     private RectTransform _rectTransform;
 
     private CardCtrl _selectedcard = null;
+    private int _activeCardCount = 0;
+
     private CardGridOptions _options;
 
     public void Init(CardGridOptions option) {
@@ -28,7 +32,14 @@ public class CardGridCtrl : MonoBehaviour
         this.RenderCards();
     }
 
+    public void ClearGrid() {
+        ObjectPooler.SharedInstance.ClearAllObject(0);
+        this._selectedcard = null;
+        this.gameObject.SetActive(false);
+    }
+
     private void SetGrid() {
+        this.gameObject.SetActive(true);
         this._gridLayout = this.GetComponent<GridLayoutGroup>();
         this._rectTransform = this.GetComponent<RectTransform>();
         float cardSize = 1;
@@ -52,15 +63,14 @@ public class CardGridCtrl : MonoBehaviour
     }
 
     private void RenderCards() {
-
-        List<Sprite> randIcons = this.GetRandomIcons(this._options.LevelObject.totalCardCount / 2);
+        this._activeCardCount = this._options.LevelObject.totalCardCount;
+        List<CardObject> randCardData = this.GetRandomCardData(this._options.LevelObject.totalCardCount / 2);
         int j = 0;
         int counter = 0;
         List<CardOption> cardOptionsList = new List<CardOption>();
         for (int i = 0; i < this. _options.LevelObject.totalCardCount; i++) {
             CardOption cardOption = new CardOption {
-                id = j,
-                icon = randIcons[j],
+                cardData = randCardData[j],
                 callback = CheckForMatchCard
             };
             counter++;
@@ -72,11 +82,10 @@ public class CardGridCtrl : MonoBehaviour
         }
         cardOptionsList = this.ShuffleCards(cardOptionsList);
         for (int i = 0; i < this._options.LevelObject.totalCardCount; i++) {
-            GameObject card = Instantiate(ResourceCtrl.instance.ResourceData.CardCtrl.gameObject) as GameObject;
+            GameObject card = ObjectPooler.SharedInstance.GetPooledObject(0);
             card.transform.SetParent(this.transform);
             card.transform.localScale = Vector3.one;
             CardCtrl cardCtrl = card.GetComponent<CardCtrl>();
-            Debug.Log(cardOptionsList[i].icon.name);
             cardCtrl.Init(cardOptionsList[i]);
         }
     }
@@ -92,15 +101,15 @@ public class CardGridCtrl : MonoBehaviour
         return list;
     }
 
-    private List<Sprite> GetRandomIcons(int count) {
-        List<Sprite> icons = new List<Sprite>();
+    private List<CardObject> GetRandomCardData(int count) {
+        List<CardObject> icons = new List<CardObject>();
         int i = 0;
         while (i < count) {
             flag: int rand = UnityEngine.Random.RandomRange(0, count);
-            if (icons.Contains(ResourceCtrl.instance.ResourceData.IconSprites[rand])) {
+            if (icons.Contains(ResourceCtrl.instance.ResourceData.CardObjects[rand])) {
                 goto flag;
             }
-            icons.Add(ResourceCtrl.instance.ResourceData.IconSprites[rand]);
+            icons.Add(ResourceCtrl.instance.ResourceData.CardObjects[rand]);
             i++;
         }
         return icons;
@@ -113,11 +122,18 @@ public class CardGridCtrl : MonoBehaviour
             if (this._selectedcard.GetCardId() == card.GetCardId()) {
                 this._selectedcard.OnCardMatched();
                 card.OnCardMatched();
+                this._activeCardCount -= 2;
+                this.CheckForGameComplete();
             } else {
                 this._selectedcard.ResetCard();
                 card.ResetCard();
             }
             this._selectedcard = null;
+        }
+    }
+    private void CheckForGameComplete() {
+        if (this._activeCardCount <= 0) {
+            this._options.callback?.Invoke("GameFinished");
         }
     }
 }

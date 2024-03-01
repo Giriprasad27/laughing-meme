@@ -57,18 +57,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Script/Controller/SoundController.cs" />
+    <Compile Include="Assets/Script/lib/ObjectPooler.cs" />
+    <Compile Include="Assets/Script/UI/LevelSelectionScreenCtrl.cs" />
+    <Compile Include="Assets/Script/UI/GameCompleteScreenCtrl.cs" />
     <Compile Include="Assets/Script/Card/CardCtrl.cs" />
+    <Compile Include="Assets/Script/UI/InGameUIScreenCtrl.cs" />
     <Compile Include="Assets/Script/lib/ObjectFlip.cs" />
     <Compile Include="Assets/Script/ScriptableObject/LevelObject.cs" />
     <Compile Include="Assets/Script/ScriptableObject/ResourceData.cs" />
+    <Compile Include="Assets/Script/UI/MenuScreenCtrl.cs" />
+    <Compile Include="Assets/Script/UI/UIScreenBaseCtrl.cs" />
     <Compile Include="Assets/Script/Card/CardGridCtrl.cs" />
     <Compile Include="Assets/Script/ScriptableObject/CardObject.cs" />
+    <Compile Include="Assets/Script/Controller/ResourceCtrl.cs" />
     <Compile Include="Assets/Script/Controller/UiController.cs" />
     <Compile Include="Assets/Script/Controller/GameController.cs" />
-    <Compile Include="Assets/Script/UI/MenuScreenCtrl.cs" />
-    <Compile Include="Assets/Script/Controller/ResourceCtrl.cs" />
-    <Compile Include="Assets/Script/UI/UIScreenBaseCtrl.cs" />
-    <Compile Include="Assets/Script/UI/InGameUIScreenCtrl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

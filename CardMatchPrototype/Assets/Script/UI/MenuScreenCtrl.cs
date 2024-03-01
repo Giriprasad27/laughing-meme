@@ -9,14 +9,14 @@ public class MenuScreenCtrl : UIScreenBaseCtrl {
 
     private Action _callback;
 
+    private void Awake() {
+        this.PlayButton.onClick.AddListener(OnPlayButtonClick);
+    }
+
     public void Init(Action callback) {
         this._callback = callback;
         this.SetScreen();
-        this._Init();
-    }
-
-    private void _Init() {
-        this.PlayButton.onClick.AddListener(OnPlayButtonClick);
+        this.Show();
     }
 
     private void OnPlayButtonClick() {

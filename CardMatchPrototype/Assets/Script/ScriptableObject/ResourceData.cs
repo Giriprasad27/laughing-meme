@@ -8,9 +8,11 @@ public class ResourceData : ScriptableObject {
     public CardGridCtrl CardGridCtrl;
     public CardCtrl CardCtrl;
 
-    public List<Sprite> IconSprites;
+    public List<CardObject> CardObjects;
     public List<LevelObject> LevelObjects;
 
     public MenuScreenCtrl MenuScreen;
-    public InGameUIScreenCtrl inGameUIScreen;
+    public LevelSelectionScreenCtrl LevelSelectionScreen;
+    public InGameUIScreenCtrl InGameUIScreen; 
+    public GameCompleteScreenCtrl GameCompleteScreen; 
 }

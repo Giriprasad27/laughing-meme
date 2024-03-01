@@ -11,6 +11,8 @@ public class UIScreenBaseCtrl : MonoBehaviour
         panelRect.pivot = new Vector2(0.5f, 0.5f);
         panelRect.anchoredPosition = Vector2.zero;
         panelRect.sizeDelta = Vector2.zero;
+        this.gameObject.transform.localScale = Vector3.one;
+        this.gameObject.transform.localPosition = Vector3.zero;
     }
     public virtual void Show() {
         this.gameObject.SetActive(true);
