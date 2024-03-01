@@ -72,6 +72,7 @@
     <Compile Include="Assets/Script/Controller/ResourceCtrl.cs" />
     <Compile Include="Assets/Script/Controller/UiController.cs" />
     <Compile Include="Assets/Script/Controller/GameController.cs" />
+    <Compile Include="Assets/Script/Controller/LocalDataController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
@@ -684,6 +685,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.Player.csproj">
+      <Project>{3DEC5C88-18D4-DD09-9760-D4F5387F7853}</Project>
+      <Name>Assembly-CSharp-firstpass.Player</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.Player.csproj">
       <Project>{C1FCD3A7-1062-89F5-7981-7FA7820A0995}</Project>
       <Name>Unity.2D.Tilemap.Extras.Player</Name>

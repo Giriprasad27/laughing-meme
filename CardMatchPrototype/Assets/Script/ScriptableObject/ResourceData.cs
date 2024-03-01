@@ -14,5 +14,23 @@ public class ResourceData : ScriptableObject {
     public MenuScreenCtrl MenuScreen;
     public LevelSelectionScreenCtrl LevelSelectionScreen;
     public InGameUIScreenCtrl InGameUIScreen; 
-    public GameCompleteScreenCtrl GameCompleteScreen; 
+    public GameCompleteScreenCtrl GameCompleteScreen;
+
+    private Dictionary<string, CardObject> _cardObjectsMap = new Dictionary<string, CardObject>();
+
+
+    public void BuildCardNameMap() {
+        foreach (CardObject card in this.CardObjects) {
+            if (card != null) {
+                if (!_cardObjectsMap.ContainsKey(card.name)) {
+                    _cardObjectsMap.Add(card.name, card);
+                }
+            }
+        }
+    }
+    public CardObject GetCardByName(string name) {
+        CardObject card;
+        _cardObjectsMap.TryGetValue(name, out card);
+        return card;
+    }
 }

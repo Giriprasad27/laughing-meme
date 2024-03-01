@@ -72,6 +72,7 @@
     <Compile Include="Assets/Script/Controller/ResourceCtrl.cs" />
     <Compile Include="Assets/Script/Controller/UiController.cs" />
     <Compile Include="Assets/Script/Controller/GameController.cs" />
+    <Compile Include="Assets/Script/Controller/LocalDataController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
@@ -741,6 +742,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{654FE624-996B-72F6-7678-2BB25137FFC8}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Flow.Editor.csproj">
       <Project>{0218EAB2-D31D-CF73-08CA-195C331BBF60}</Project>
       <Name>Unity.VisualScripting.Flow.Editor</Name>

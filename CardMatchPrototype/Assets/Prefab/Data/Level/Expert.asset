@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Expert
   m_EditorClassIdentifier: 
   levelName: Expert
+  level: 2
   rowCount: 4
   totalCardCount: 24
   spacing: 20

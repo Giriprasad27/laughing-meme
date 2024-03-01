@@ -28,21 +28,29 @@ public class GameController : MonoBehaviour {
     }
 
     private void RenderLevel() {
+        this._score = 0;
         if (this._cardGridCtrl == null) {
             this._cardGridCtrl = Instantiate(ResourceCtrl.instance.ResourceData.CardGridCtrl) as CardGridCtrl;
             this._cardGridCtrl.gameObject.transform.SetParent(GameCanvas.transform);
             this._cardGridCtrl.gameObject.transform.localScale = Vector3.one;
         }
+        JSONObject savedGame = LocalDataController.instance.GetValue("savedGame");
+        if (savedGame != null && !savedGame.IsNull) {
+            this._score = (int)savedGame["score"].i;
+            this._levelDifficulty = (Difficulty)(int)savedGame["difficulty"].i;
+        }
+
         this._cardGridCtrl.Init(new CardGridOptions {
             LevelObject = ResourceCtrl.instance.ResourceData.LevelObjects[(int)this._levelDifficulty],
-            callback = OnCardGridCallBack
-        });
+            callback = OnCardGridCallBack,
+            savedLevelData = savedGame != null ? savedGame["carddatas"] : null
+        }); ;
         this.UiController.RenderInGameUI();
-        this._score = 0;
     }
 
     private void OnGameFinished() {
         this.UiController.OnGameFinished();
+        LocalDataController.instance.SetValue("savedGame", null);
     }
 
     private void OnCardGridCallBack(string key) {

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Professional
   m_EditorClassIdentifier: 
   levelName: Professional
+  level: 3
   rowCount: 6
   totalCardCount: 36
   spacing: 20

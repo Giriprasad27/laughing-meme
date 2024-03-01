@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CardOption {
     public CardObject cardData;
+    public bool hideCard = false;
     public Action<CardCtrl> callback;
 }
 
@@ -30,7 +31,11 @@ public class CardCtrl : MonoBehaviour {
         this.gameObject.SetActive(true);
         this._image.enabled = true;
         this.Icon.sprite = this._option.cardData.icon;
-        this._ResetCard();
+        if (this._option.hideCard) {
+            this.HideCard();
+        } else {
+            this.ShowCard();
+        }
     }
 
     public string GetCardId() {
@@ -49,11 +54,23 @@ public class CardCtrl : MonoBehaviour {
         }
     }
 
-    public void ResetCard() {
-        Invoke("_ResetCard",this._resetTime);
+    public CardOption GetCardOption() {
+        if (this._option != null) {
+            return this._option;
+        } else {
+            return null;
+        }
     }
-    private void _ResetCard() {
+
+    public void ResetCard() {
+        Invoke("ShowCard", this._resetTime);
+    }
+    private void ShowCard() {
         this._button.enabled = true;
+        this.ActiveObject.SetActive(false);
+    }
+    private void HideCard() {
+        this._image.enabled = false;
         this.ActiveObject.SetActive(false);
     }
 
@@ -61,8 +78,7 @@ public class CardCtrl : MonoBehaviour {
         Invoke("_OnCardMatched", this._resetTime);
     }
     private void _OnCardMatched() {
-        this._image.enabled = false;
-        this.ActiveObject.SetActive(false);
+        this.HideCard();
         if (GameController.instance != null) {
             GameController.instance.CardClaimed(this._option.cardData);
         }

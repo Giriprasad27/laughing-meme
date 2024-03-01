@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Intermidate
   m_EditorClassIdentifier: 
   levelName: Intermidate
+  level: 1
   rowCount: 3
   totalCardCount: 12
   spacing: 20
