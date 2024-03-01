@@ -777,6 +777,8 @@ GameObject:
   - component: {fileID: 6449150598703439509}
   - component: {fileID: 6449150598703439508}
   - component: {fileID: 6449150598703439506}
+  - component: {fileID: 3231397251748277188}
+  - component: {fileID: 7537802599709194720}
   m_Layer: 5
   m_Name: MenuScreen
   m_TagString: Untagged
@@ -855,8 +857,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe17401e0270847329acfae615f6402e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 3231397251748277188}
   PlayButton: {fileID: 6449150599014684615}
   ResumeButton: {fileID: 4647585595909005589}
+--- !u!95 &3231397251748277188
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449150598703439510}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f662f8802f96b40cdbdfc273309703bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &7537802599709194720
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449150598703439510}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6449150599014684617
 GameObject:
   m_ObjectHideFlags: 0

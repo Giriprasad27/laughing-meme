@@ -313,6 +313,8 @@ GameObject:
   - component: {fileID: 2266841586782411619}
   - component: {fileID: 2266841586782411617}
   - component: {fileID: 609944022246721978}
+  - component: {fileID: 5240172751573408566}
+  - component: {fileID: 7279149874158556043}
   m_Layer: 5
   m_Name: InGameUIScreen
   m_TagString: Untagged
@@ -361,11 +363,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913bd103a8d4841fc81f88670c4151b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 5240172751573408566}
   PauseButton: {fileID: 1643790160385845899}
   ScoreText: {fileID: 4639729753827188520}
   HeatModeObject: {fileID: 4390082036097356841}
   HeatModeSlider: {fileID: 1522547358722220181}
   HeatModeValText: {fileID: 9060456624917368693}
+--- !u!95 &5240172751573408566
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2266841586782411618}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f662f8802f96b40cdbdfc273309703bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &7279149874158556043
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2266841586782411618}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2266841587113845023
 GameObject:
   m_ObjectHideFlags: 0

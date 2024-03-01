@@ -2423,6 +2423,8 @@ GameObject:
   - component: {fileID: 8587502906036640821}
   - component: {fileID: 8587502906036640823}
   - component: {fileID: 7068467601826190373}
+  - component: {fileID: 99240291180281713}
+  - component: {fileID: 1929863003311615881}
   m_Layer: 5
   m_Name: LevelSelectionScreen
   m_TagString: Untagged
@@ -2471,8 +2473,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f94e627777f482692d4bef53ccdf94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 99240291180281713}
   GoButton: {fileID: 9121595177584684509}
   EasyLevel: {fileID: 5369118674540773538}
   IntermidateLevel: {fileID: 6131774273407763494}
   ExpertLevel: {fileID: 6131774273755371849}
   ProfessionalLevel: {fileID: 6131774273836611756}
+--- !u!95 &99240291180281713
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587502906036640820}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f662f8802f96b40cdbdfc273309703bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &1929863003311615881
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587502906036640820}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

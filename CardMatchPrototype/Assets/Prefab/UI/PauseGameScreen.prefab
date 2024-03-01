@@ -795,6 +795,8 @@ GameObject:
   - component: {fileID: 5814773498973995522}
   - component: {fileID: 5814773498973995520}
   - component: {fileID: 472530895217685604}
+  - component: {fileID: 4842219223880235517}
+  - component: {fileID: 4306773715098222853}
   m_Layer: 5
   m_Name: PauseGameScreen
   m_TagString: Untagged
@@ -843,9 +845,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2df1d65bd9f4f86b650629a1b818a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 4842219223880235517}
   QuitButton: {fileID: 6415557614672311274}
   SaveAndQuitButton: {fileID: 2454957901201679280}
   CloseButton: {fileID: 2405387910109061796}
+--- !u!95 &4842219223880235517
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5814773498973995523}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3ab8243d5180d49aa94380fa2bfe981b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &4306773715098222853
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5814773498973995523}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6204464051934417381
 GameObject:
   m_ObjectHideFlags: 0
