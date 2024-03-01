@@ -12,6 +12,7 @@ public class CardOption {
 public class CardCtrl : MonoBehaviour {
     public GameObject ActiveObject;
     public Image Icon;
+    public Image SpecialIcon;
     private Button _button;
     private Image _image;
     private CardOption _option;
@@ -31,11 +32,14 @@ public class CardCtrl : MonoBehaviour {
         this.gameObject.SetActive(true);
         this._image.enabled = true;
         this.Icon.sprite = this._option.cardData.icon;
+        if (this._option.cardData.specialIcon != null){
+            this.SpecialIcon.sprite = this._option.cardData.specialIcon;
+        }
         if (this._option.hideCard) {
             this.DisableCard();
         } else {
             this.FlipCard();
-            this.ReFlipCard();
+            //this.ReFlipCard();
         }
     }
 
