@@ -31,8 +31,10 @@ public class CardCtrl : MonoBehaviour {
         this.gameObject.SetActive(true);
         this._image.enabled = true;
         this.Icon.sprite = this._option.cardData.icon;
-        if (this._option.cardData.specialIcon != null){
+        if (this._option.cardData.specialIcon != null) {
             this.SpecialIcon.sprite = this._option.cardData.specialIcon;
+        } else {
+            this.SpecialIcon.sprite = ResourceCtrl.instance.ResourceData.EmptySprite;
         }
         if (this._option.hideCard) {
             this.DisableCard();

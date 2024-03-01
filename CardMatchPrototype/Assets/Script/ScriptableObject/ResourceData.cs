@@ -16,12 +16,14 @@ public class ResourceData : ScriptableObject {
     public InGameUIScreenCtrl InGameUIScreen; 
     public GameCompleteScreenCtrl GameCompleteScreen;
     public PauseGameScreenCtrl PauseGameScreen;
+    public Sprite EmptySprite;
 
     public List<AudioClip> AudioClips;
 
     private Dictionary<string, AudioClip> _audioClipMap = new Dictionary<string, AudioClip>();
 
     private Dictionary<string, CardObject> _cardObjectsMap = new Dictionary<string, CardObject>();
+
 
 
     public void BuildCardNameMap() {
