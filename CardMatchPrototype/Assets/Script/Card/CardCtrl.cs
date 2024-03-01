@@ -11,6 +11,7 @@ public class CardOption {
 
 public class CardCtrl : MonoBehaviour {
     public GameObject ActiveObject;
+    public Animator Animator;
     public Image Icon;
     public Image SpecialIcon;
     private Button _button;
@@ -39,7 +40,7 @@ public class CardCtrl : MonoBehaviour {
             this.DisableCard();
         } else {
             this.FlipCard();
-            //this.ReFlipCard();
+            this.ReFlipCard();
         }
     }
 
@@ -72,15 +73,18 @@ public class CardCtrl : MonoBehaviour {
     }
     private void FlipCard() {
         this._button.enabled = false;
-        this.ActiveObject.SetActive(true);
+        //this.ActiveObject.SetActive(true);
+        this.Animator.SetTrigger("flip");
     }
     private void EnableCard() {
         this._button.enabled = true;
-        this.ActiveObject.SetActive(false);
+        //this.ActiveObject.SetActive(false);
+        this.Animator.SetTrigger("reflip");
     }
     private void DisableCard() {
         this._image.enabled = false;
-        this.ActiveObject.SetActive(false);
+        //this.ActiveObject.SetActive(false);
+        this.Animator.SetTrigger("claim");
     }
 
     public void OnCardMatched() {
