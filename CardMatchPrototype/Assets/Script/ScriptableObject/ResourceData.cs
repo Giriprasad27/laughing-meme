@@ -17,6 +17,10 @@ public class ResourceData : ScriptableObject {
     public GameCompleteScreenCtrl GameCompleteScreen;
     public PauseGameScreenCtrl PauseGameScreen;
 
+    public List<AudioClip> AudioClips;
+
+    private Dictionary<string, AudioClip> _audioClipMap = new Dictionary<string, AudioClip>();
+
     private Dictionary<string, CardObject> _cardObjectsMap = new Dictionary<string, CardObject>();
 
 
@@ -29,9 +33,25 @@ public class ResourceData : ScriptableObject {
             }
         }
     }
+
     public CardObject GetCardByName(string name) {
         CardObject card;
         _cardObjectsMap.TryGetValue(name, out card);
         return card;
+    }
+
+    public void BuildAudioClipMap() {
+        foreach (AudioClip audioClip in this.AudioClips) {
+            if (audioClip != null) {
+                if (!_audioClipMap.ContainsKey(audioClip.name)) {
+                    _audioClipMap.Add(audioClip.name, audioClip);
+                }
+            }
+        }
+    }
+    public AudioClip GetAudioByName(string name) {
+        AudioClip audioClip;
+        _audioClipMap.TryGetValue(name, out audioClip);
+        return audioClip;
     }
 }

@@ -25,9 +25,11 @@ public class GameCompleteScreenCtrl : UIScreenBaseCtrl {
     private void _Init() {
         this.ScoreText.text ="Score: "+ GameController.instance.GetScore().ToString("D4");
         this.Show();
+        SoundController.instance.PlayOneShot("GameOver");
     }
 
     private void OnHomeButtonClick() {
+        SoundController.instance.PlayOneShot("ButtonClick");
         this._callback?.Invoke();
     }
 }

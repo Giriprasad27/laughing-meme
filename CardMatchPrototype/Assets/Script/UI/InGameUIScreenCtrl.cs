@@ -35,6 +35,7 @@ public class InGameUIScreenCtrl : UIScreenBaseCtrl {
 
     private void OnPauseButtonClick() {
         this._callback?.Invoke("PauseGame");
+        SoundController.instance.PlayOneShot("ButtonClick");
     }
 
     private void OnScoreUpdate(int score) {

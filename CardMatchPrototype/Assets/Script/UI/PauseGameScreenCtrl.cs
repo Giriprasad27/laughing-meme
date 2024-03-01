@@ -19,16 +19,19 @@ public class PauseGameScreenCtrl : UIScreenBaseCtrl {
 
     private void OnQuitButtonClick() {
         this._callback?.Invoke("QuitGame");
+        SoundController.instance.PlayOneShot("ButtonClick");
         this.Hide();
     }
 
     private void OnSaveButtonClick() {
         this._callback?.Invoke("SaveAndQuit");
+        SoundController.instance.PlayOneShot("ButtonClick");
         this.Hide();
     }
 
     private void OnCloseButtonClick() {
         this.Hide();
+        SoundController.instance.PlayOneShot("ButtonClick");
     }
 
     internal void Init(Action<string> callback) {

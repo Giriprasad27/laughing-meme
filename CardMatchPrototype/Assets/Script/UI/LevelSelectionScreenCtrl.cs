@@ -38,29 +38,34 @@ public class LevelSelectionScreenCtrl : UIScreenBaseCtrl {
 
     private void OnGoButtonClick() {
         this._callback?.Invoke(_selectedDifficulty);
+        SoundController.instance.PlayOneShot("ButtonClick");
     }
 
     private void OnEasySelected(bool val) {
         if (val) {
             _selectedDifficulty = Difficulty.Easy;
+            SoundController.instance.PlayOneShot("ButtonClick");
         }
     }
 
     private void OnIntermidateSelected(bool val) {
         if (val) {
             _selectedDifficulty = Difficulty.Intermidate;
+            SoundController.instance.PlayOneShot("ButtonClick");
         }
     }
 
     private void OnExpertSelected(bool val) {
         if (val) {
             _selectedDifficulty = Difficulty.Expert;
+            SoundController.instance.PlayOneShot("ButtonClick");
         }
     }
 
     private void OnProfessionalSelected(bool val) {
         if (val) {
             _selectedDifficulty = Difficulty.Professional;
+            SoundController.instance.PlayOneShot("ButtonClick");
         }
     }
 

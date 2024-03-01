@@ -18,8 +18,6 @@ public class CardCtrl : MonoBehaviour {
     private Image _image;
     private CardOption _option;
 
-    private float _resetTime = 0.75f;
-
     private void Awake() {
         this._button = this.GetComponent<Button>();
         this._image = this.GetComponent<Image>();
@@ -40,7 +38,7 @@ public class CardCtrl : MonoBehaviour {
             this.DisableCard();
         } else {
             this.FlipCard();
-            this.ReFlipCard();
+            this.ReFlipCard(1.5f);
         }
     }
 
@@ -68,8 +66,8 @@ public class CardCtrl : MonoBehaviour {
         }
     }
 
-    public void ReFlipCard() {
-        Invoke("EnableCard", this._resetTime);
+    public void ReFlipCard(float resettime = 0.75f) {
+        Invoke("EnableCard", resettime);
     }
     private void FlipCard() {
         this._button.enabled = false;
@@ -88,7 +86,7 @@ public class CardCtrl : MonoBehaviour {
     }
 
     public void OnCardMatched() {
-        Invoke("_OnCardMatched", this._resetTime);
+        Invoke("_OnCardMatched", 0.75f);
     }
     private void _OnCardMatched() {
         this.DisableCard();
@@ -99,6 +97,7 @@ public class CardCtrl : MonoBehaviour {
 
     private void OnCardButtonClick() {
         this.FlipCard();
+        SoundController.instance.PlayOneShot("CardFlip");
         this._option.callback?.Invoke(this);
     }
     

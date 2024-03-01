@@ -24,10 +24,12 @@ public class MenuScreenCtrl : UIScreenBaseCtrl {
 
     private void OnPlayButtonClick() {
         this._callback?.Invoke("playbutton");
+        SoundController.instance.PlayOneShot("ButtonClick");
     }
 
     private void OnResumeButtonClick() {
         this._callback?.Invoke("resumebutton");
+        SoundController.instance.PlayOneShot("ButtonClick");
     }
 
     private void CheckForAnySavedGames() {

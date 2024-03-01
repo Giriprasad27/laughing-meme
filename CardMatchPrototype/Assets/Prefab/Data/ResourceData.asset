@@ -43,3 +43,10 @@ MonoBehaviour:
   InGameUIScreen: {fileID: 609944022246721978, guid: 5ca892f7295cb4bb09a5065e2b99de80, type: 3}
   GameCompleteScreen: {fileID: 6900855469587977504, guid: eeb4fc6262c89490bb7e455595ce9eec, type: 3}
   PauseGameScreen: {fileID: 472530895217685604, guid: df4c9189e660941ada021812be4609b2, type: 3}
+  AudioClips:
+  - {fileID: 8300000, guid: ffbcb5d08e7cd42a1bc323f712d26b19, type: 3}
+  - {fileID: 8300000, guid: 19740e75dc6714c9e9a57a0a04f38b6a, type: 3}
+  - {fileID: 8300000, guid: 86d6136b2aa04402ba9d5ac1360d2edc, type: 3}
+  - {fileID: 8300000, guid: e44f2349ac852474a9492e2b66134b04, type: 3}
+  - {fileID: 8300000, guid: eef54a62af8dc4db5b60e68b6475fa83, type: 3}
+  - {fileID: 8300000, guid: 14734794334ce46c9a85e87bbc323b84, type: 3}

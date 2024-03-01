@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public static SoundController instance;
+    AudioSource _sfxSource;
+
+    private void Awake() {
+        if (instance == null) {
+            instance = this;
+        }
+        this._sfxSource = this.GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Start() {
+        ResourceCtrl.instance.ResourceData.BuildAudioClipMap();
+    }
+
+    public void PlayOneShot(string audioname) {
+        AudioClip audioClip = ResourceCtrl.instance.ResourceData.GetAudioByName(audioname);
+        if (audioClip != null) {
+            _sfxSource.PlayOneShot(audioClip);
+        }
     }
 }

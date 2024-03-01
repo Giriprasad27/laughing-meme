@@ -17,6 +17,7 @@ public class UIScreenBaseCtrl : MonoBehaviour
     }
     public virtual void Show() {
         this.gameObject.SetActive(true);
+        SoundController.instance.PlayOneShot("Window");
         if (this.animator != null) {
             this.animator.SetTrigger("show");
         }

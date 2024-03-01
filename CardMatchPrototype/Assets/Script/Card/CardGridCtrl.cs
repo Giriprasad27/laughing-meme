@@ -164,10 +164,12 @@ public class CardGridCtrl : MonoBehaviour
             if (this._selectedcard.GetCardId() == card.GetCardId()) {
                 this.MardCardAsClaimed(card);
                 this.MardCardAsClaimed(this._selectedcard);
+                SoundController.instance.PlayOneShot("ClamSucess");
                 this.CheckForGameComplete();
             } else {
                 this._selectedcard.ReFlipCard();
                 card.ReFlipCard();
+                SoundController.instance.PlayOneShot("ClamFail");
             }
             this._selectedcard = null;
             this._turnCount++;
