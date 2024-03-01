@@ -32,9 +32,10 @@ public class CardCtrl : MonoBehaviour {
         this._image.enabled = true;
         this.Icon.sprite = this._option.cardData.icon;
         if (this._option.hideCard) {
-            this.HideCard();
+            this.DisableCard();
         } else {
-            this.ShowCard();
+            this.FlipCard();
+            this.ReFlipCard();
         }
     }
 
@@ -62,14 +63,18 @@ public class CardCtrl : MonoBehaviour {
         }
     }
 
-    public void ResetCard() {
-        Invoke("ShowCard", this._resetTime);
+    public void ReFlipCard() {
+        Invoke("EnableCard", this._resetTime);
     }
-    private void ShowCard() {
+    private void FlipCard() {
+        this._button.enabled = false;
+        this.ActiveObject.SetActive(true);
+    }
+    private void EnableCard() {
         this._button.enabled = true;
         this.ActiveObject.SetActive(false);
     }
-    private void HideCard() {
+    private void DisableCard() {
         this._image.enabled = false;
         this.ActiveObject.SetActive(false);
     }
@@ -78,15 +83,14 @@ public class CardCtrl : MonoBehaviour {
         Invoke("_OnCardMatched", this._resetTime);
     }
     private void _OnCardMatched() {
-        this.HideCard();
+        this.DisableCard();
         if (GameController.instance != null) {
-            GameController.instance.CardClaimed(this._option.cardData);
+            GameController.instance.CardClaimed(this._option.cardData.score);
         }
     }
 
     private void OnCardButtonClick() {
-        this._button.enabled = false;
-        this.ActiveObject.SetActive(true);
+        this.FlipCard();
         this._option.callback?.Invoke(this);
     }
     

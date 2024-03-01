@@ -42,3 +42,4 @@ MonoBehaviour:
   LevelSelectionScreen: {fileID: 7068467601826190373, guid: ae97b185b29454aefad432934caa1419, type: 3}
   InGameUIScreen: {fileID: 609944022246721978, guid: 5ca892f7295cb4bb09a5065e2b99de80, type: 3}
   GameCompleteScreen: {fileID: 6900855469587977504, guid: eeb4fc6262c89490bb7e455595ce9eec, type: 3}
+  PauseGameScreen: {fileID: 472530895217685604, guid: df4c9189e660941ada021812be4609b2, type: 3}

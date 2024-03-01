@@ -6,20 +6,32 @@ using UnityEngine.UI;
 
 public class MenuScreenCtrl : UIScreenBaseCtrl {
     public Button PlayButton;
+    public Button ResumeButton;
 
-    private Action _callback;
+    private Action<string> _callback;
 
     private void Awake() {
         this.PlayButton.onClick.AddListener(OnPlayButtonClick);
+        this.ResumeButton.onClick.AddListener(OnResumeButtonClick);
     }
 
-    public void Init(Action callback) {
+    public void Init(Action<string> callback) {
         this._callback = callback;
         this.SetScreen();
+        this.CheckForAnySavedGames();
         this.Show();
     }
 
     private void OnPlayButtonClick() {
-        this._callback?.Invoke();
+        this._callback?.Invoke("playbutton");
+    }
+
+    private void OnResumeButtonClick() {
+        this._callback?.Invoke("resumebutton");
+    }
+
+    private void CheckForAnySavedGames() {
+        JSONObject savedGame = LocalDataController.instance.GetValue("savedGame");
+        ResumeButton.gameObject.SetActive(savedGame != null && !savedGame.IsNull);
     }
 }

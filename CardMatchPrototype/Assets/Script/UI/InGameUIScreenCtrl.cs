@@ -34,7 +34,7 @@ public class InGameUIScreenCtrl : UIScreenBaseCtrl {
     }
 
     private void OnPauseButtonClick() {
-        this._callback?.Invoke("QuitGame");
+        this._callback?.Invoke("PauseGame");
     }
 
     private void OnScoreUpdate(int score) {

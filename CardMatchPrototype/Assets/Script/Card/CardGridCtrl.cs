@@ -44,6 +44,10 @@ public class CardGridCtrl : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
+    public void SaveLevelProgression() {
+        this.SetLevelJsonData(this._cardOptionsList);
+    }
+
     private void SetGrid() {
         this._turnCount = 0;
         this.gameObject.SetActive(true);
@@ -75,38 +79,9 @@ public class CardGridCtrl : MonoBehaviour
         this._cardClaimStatus = new bool[this._activeCardCount];
 
         if (this._options.savedLevelData != null) {
-            JSONObject savedLevelData = this._options.savedLevelData;
-            ResourceCtrl.instance.ResourceData.BuildCardNameMap();
-            for (int i = 0; i < savedLevelData.Count; i++) {
-                JSONObject card = savedLevelData[i.ToString()];
-                string cardname = card["cardname"].str;
-                this._cardClaimStatus[i] = card["claimed"].b;
-                CardObject carddata = ResourceCtrl.instance.ResourceData.GetCardByName(cardname);
-                CardOption cardOption = new CardOption {
-                    cardData = carddata,
-                    callback = CheckForMatchCard,
-                    hideCard = this._cardClaimStatus[i]
-                };
-                this._cardOptionsList.Add(cardOption);
-            }
+            this.LoadSavedLevel();
         } else {
-            List<CardObject> randCardData = this.GetRandomCardData(this._options.LevelObject.totalCardCount / 2);
-            int j = 0;
-            int counter = 0;
-            for (int i = 0; i < this._options.LevelObject.totalCardCount; i++) {
-                CardOption cardOption = new CardOption {
-                    cardData = randCardData[j],
-                    callback = CheckForMatchCard
-                };
-                counter++;
-                if (counter == 2) {
-                    j++;
-                    counter = 0;
-                }
-                this._cardOptionsList.Add(cardOption);
-                this._cardClaimStatus[i] = (false);
-            }
-            this._cardOptionsList = this.ShuffleCards(this._cardOptionsList);
+            this.GenerateNewLevel();
         }
         for (int i = 0; i < this._options.LevelObject.totalCardCount; i++) {
             GameObject card = ObjectPooler.SharedInstance.GetPooledObject(0);
@@ -115,6 +90,46 @@ public class CardGridCtrl : MonoBehaviour
             CardCtrl cardCtrl = card.GetComponent<CardCtrl>();
             cardCtrl.Init(this._cardOptionsList[i]);
         }
+    }
+
+    private void LoadSavedLevel() {
+        JSONObject savedLevelData = this._options.savedLevelData;
+        ResourceCtrl.instance.ResourceData.BuildCardNameMap();
+        for (int i = 0; i < savedLevelData.Count; i++) {
+            JSONObject card = savedLevelData[i.ToString()];
+            string cardname = card["cardname"].str;
+            this._cardClaimStatus[i] = card["claimed"].b;
+            CardObject carddata = ResourceCtrl.instance.ResourceData.GetCardByName(cardname);
+            CardOption cardOption = new CardOption {
+                cardData = carddata,
+                callback = CheckForMatchCard,
+                hideCard = this._cardClaimStatus[i]
+            };
+            this._cardOptionsList.Add(cardOption);
+            if (this._cardClaimStatus[i]) {
+                this._activeCardCount--;
+            }
+        }
+    }
+
+    private void GenerateNewLevel() {
+        List<CardObject> randCardData = this.GetRandomCardData(this._options.LevelObject.totalCardCount / 2);
+        int j = 0;
+        int counter = 0;
+        for (int i = 0; i < this._options.LevelObject.totalCardCount; i++) {
+            CardOption cardOption = new CardOption {
+                cardData = randCardData[j],
+                callback = CheckForMatchCard
+            };
+            counter++;
+            if (counter == 2) {
+                j++;
+                counter = 0;
+            }
+            this._cardOptionsList.Add(cardOption);
+            this._cardClaimStatus[i] = (false);
+        }
+        this._cardOptionsList = this.ShuffleCards(this._cardOptionsList);
     }
 
     private List<CardOption> ShuffleCards(List<CardOption> list) {
@@ -151,8 +166,8 @@ public class CardGridCtrl : MonoBehaviour
                 this.MardCardAsClaimed(this._selectedcard);
                 this.CheckForGameComplete();
             } else {
-                this._selectedcard.ResetCard();
-                card.ResetCard();
+                this._selectedcard.ReFlipCard();
+                card.ReFlipCard();
             }
             this._selectedcard = null;
             this._turnCount++;
@@ -165,21 +180,23 @@ public class CardGridCtrl : MonoBehaviour
     }
 
     private void SetLevelJsonData(List<CardOption> cardOptionsList) {
-        this._leveldata = new JSONObject();
-        this._leveldata.AddField("score",GameController.instance.GetScore());
-        this._leveldata.AddField("turn", this._turnCount);
-        this._leveldata.AddField("difficulty", (int)this._options.LevelObject.level);
+        if (_activeCardCount > 0) {
+            this._leveldata = new JSONObject();
+            this._leveldata.AddField("score", GameController.instance.GetScore());
+            this._leveldata.AddField("turn", this._turnCount);
+            this._leveldata.AddField("difficulty", (int)this._options.LevelObject.level);
 
-        JSONObject carddatas = new JSONObject();
-        for(int i= 0; i< cardOptionsList.Count;i++) {
-            JSONObject carddata = new JSONObject();
-            carddata.AddField("cardname", cardOptionsList[i].cardData.name);
-            carddata.AddField("claimed", this._cardClaimStatus[i]);
-            carddatas.SetField(i.ToString(),carddata);
+            JSONObject carddatas = new JSONObject();
+            for (int i = 0; i < cardOptionsList.Count; i++) {
+                JSONObject carddata = new JSONObject();
+                carddata.AddField("cardname", cardOptionsList[i].cardData.name);
+                carddata.AddField("claimed", this._cardClaimStatus[i]);
+                carddatas.SetField(i.ToString(), carddata);
+            }
+            this._leveldata.SetField("carddatas", carddatas);
+            Debug.Log(this._leveldata.ToString());
+            LocalDataController.instance.SetValue("savedGame", this._leveldata);
         }
-        this._leveldata.SetField("carddatas",carddatas);
-        Debug.Log(this._leveldata.ToString());
-        LocalDataController.instance.SetValue("savedGame", this._leveldata);
     }
 
     private void MardCardAsClaimed(CardCtrl card) {
@@ -191,12 +208,7 @@ public class CardGridCtrl : MonoBehaviour
     }
 
     private void OnApplicationQuit() {
+        Debug.Log("OnApplicationQuit");
         this.SetLevelJsonData(this._cardOptionsList);
-    }
-
-    private void OnApplicationPause(bool pause) {
-        if (pause) {
-            
-        }
     }
 }

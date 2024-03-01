@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{60366103-3D89-83C3-079D-2D8256A4E4AE}</ProjectGuid>
+    <ProjectGuid>{3DEC5C88-18D4-DD09-9760-D4F5387F7853}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -48,7 +48,7 @@
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>2.0.16</UnityProjectGeneratorVersion>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>GamePlugins:3</UnityProjectType>
     <UnityBuildTarget>StandaloneOSX:2</UnityBuildTarget>
     <UnityVersion>2021.3.10f1</UnityVersion>
   </PropertyGroup>
@@ -56,47 +56,7 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Script/Controller/SoundController.cs" />
-    <Compile Include="Assets/Script/lib/ObjectPooler.cs" />
-    <Compile Include="Assets/Script/UI/LevelSelectionScreenCtrl.cs" />
-    <Compile Include="Assets/Script/UI/GameCompleteScreenCtrl.cs" />
-    <Compile Include="Assets/Script/Card/CardCtrl.cs" />
-    <Compile Include="Assets/Script/UI/InGameUIScreenCtrl.cs" />
-    <Compile Include="Assets/Script/lib/ObjectFlip.cs" />
-    <Compile Include="Assets/Script/Controller/LocalDataController.cs" />
-    <Compile Include="Assets/Script/UI/PauseGameScreenCtrl.cs" />
-    <Compile Include="Assets/Script/ScriptableObject/LevelObject.cs" />
-    <Compile Include="Assets/Script/ScriptableObject/ResourceData.cs" />
-    <Compile Include="Assets/Script/UI/MenuScreenCtrl.cs" />
-    <Compile Include="Assets/Script/UI/UIScreenBaseCtrl.cs" />
-    <Compile Include="Assets/Script/Card/CardGridCtrl.cs" />
-    <Compile Include="Assets/Script/ScriptableObject/CardObject.cs" />
-    <Compile Include="Assets/Script/Controller/ResourceCtrl.cs" />
-    <Compile Include="Assets/Script/Controller/UiController.cs" />
-    <Compile Include="Assets/Script/Controller/GameController.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
-    <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
-    <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
+    <Compile Include="Assets/Plugins/JSON/JSONObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -686,10 +646,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.Player.csproj">
-      <Project>{3DEC5C88-18D4-DD09-9760-D4F5387F7853}</Project>
-      <Name>Assembly-CSharp-firstpass.Player</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.Player.csproj">
       <Project>{C1FCD3A7-1062-89F5-7981-7FA7820A0995}</Project>
       <Name>Unity.2D.Tilemap.Extras.Player</Name>

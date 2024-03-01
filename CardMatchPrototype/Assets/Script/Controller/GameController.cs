@@ -27,30 +27,19 @@ public class GameController : MonoBehaviour {
         this.UiController.Init(OnUIControllerCallBack);
     }
 
-    private void RenderLevel() {
-        this._score = 0;
+    private void RenderCardGrid(JSONObject gamedata = null) {
         if (this._cardGridCtrl == null) {
             this._cardGridCtrl = Instantiate(ResourceCtrl.instance.ResourceData.CardGridCtrl) as CardGridCtrl;
             this._cardGridCtrl.gameObject.transform.SetParent(GameCanvas.transform);
             this._cardGridCtrl.gameObject.transform.localScale = Vector3.one;
         }
-        JSONObject savedGame = LocalDataController.instance.GetValue("savedGame");
-        if (savedGame != null && !savedGame.IsNull) {
-            this._score = (int)savedGame["score"].i;
-            this._levelDifficulty = (Difficulty)(int)savedGame["difficulty"].i;
-        }
 
         this._cardGridCtrl.Init(new CardGridOptions {
             LevelObject = ResourceCtrl.instance.ResourceData.LevelObjects[(int)this._levelDifficulty],
             callback = OnCardGridCallBack,
-            savedLevelData = savedGame != null ? savedGame["carddatas"] : null
+            savedLevelData = gamedata
         }); ;
         this.UiController.RenderInGameUI();
-    }
-
-    private void OnGameFinished() {
-        this.UiController.OnGameFinished();
-        LocalDataController.instance.SetValue("savedGame", null);
     }
 
     private void OnCardGridCallBack(string key) {
@@ -61,26 +50,46 @@ public class GameController : MonoBehaviour {
         }
     }
 
+    private void OnGameFinished() {
+        this.UiController.OnGameFinished();
+        LocalDataController.instance.SetValue("savedGame", null);
+    }
+
     private void OnUIControllerCallBack(UiCallback callbackObj) {
         string key = callbackObj.type;
         switch (key) {
-            case "GoToGame":
+            case "GoToGame":  // from level seletion
             this._levelDifficulty = (Difficulty)callbackObj.value;
-            this.RenderLevel();
+            this._score = 0;
+            this.RenderCardGrid();
+            LocalDataController.instance.SetValue("savedGame", null); // cleared old save game if any
+            break;
+            case "ResumeSavedGame": // from menu screen itself from resume button
+            JSONObject savedGame = LocalDataController.instance.GetValue("savedGame");
+            if (savedGame != null && !savedGame.IsNull) {
+                this._score = (int)savedGame["score"].i;
+                this._levelDifficulty = (Difficulty)(int)savedGame["difficulty"].i;
+                this.RenderCardGrid(savedGame["carddatas"]);
+                OnScoreUpdate(this._score);
+            }
             break;
             case "GoToMenu":
-            this.OnGoToMenuSelected();
+            this.OnGoToMainMenu();
+            break;
+            case "SaveAndToMenu":
+            this._cardGridCtrl.SaveLevelProgression();
+            this.OnGoToMainMenu();
             break;
         }
     }
 
-    private void OnGoToMenuSelected() {
+    private void OnGoToMainMenu() {
         this._cardGridCtrl.ClearGrid();
         this.UiController.RenderMenuScreen();
     }
 
-    public void CardClaimed(CardObject card) {
-        this._score += card.score;
+    public void CardClaimed(int score) {
+        this._score += score;
         if (this.OnScoreUpdate != null) {
             this.OnScoreUpdate(this._score);
         }

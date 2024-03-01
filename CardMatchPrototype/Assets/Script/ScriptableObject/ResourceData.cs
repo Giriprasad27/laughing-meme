@@ -15,6 +15,7 @@ public class ResourceData : ScriptableObject {
     public LevelSelectionScreenCtrl LevelSelectionScreen;
     public InGameUIScreenCtrl InGameUIScreen; 
     public GameCompleteScreenCtrl GameCompleteScreen;
+    public PauseGameScreenCtrl PauseGameScreen;
 
     private Dictionary<string, CardObject> _cardObjectsMap = new Dictionary<string, CardObject>();
 

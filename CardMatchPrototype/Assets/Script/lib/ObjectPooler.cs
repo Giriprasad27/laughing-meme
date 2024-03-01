@@ -122,7 +122,6 @@ public class ObjectPooler : MonoBehaviour
 
 	internal void ClearAllObject(int index) {
 		List<GameObject> activeObjects = this.GetActiveMembers(index);
-		Debug.Log("activeObjects count " + activeObjects.Count);
 		for (int i = 0; i < activeObjects.Count; i++) {
 			activeObjects[i].SetActive(false);
 			activeObjects[i].transform.SetParent(this.transform);
