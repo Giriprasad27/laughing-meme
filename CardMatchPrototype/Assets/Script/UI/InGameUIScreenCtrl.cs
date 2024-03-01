@@ -42,7 +42,7 @@ public class InGameUIScreenCtrl : UIScreenBaseCtrl {
     }
 
     private void OnDisable() {
-        if (!GameController.instance != null) {
+        if (GameController.instance != null) {
             GameController.instance.OnScoreUpdate -= this.OnScoreUpdate;
         }
     }

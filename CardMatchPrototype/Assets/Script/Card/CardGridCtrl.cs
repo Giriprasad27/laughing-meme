@@ -132,7 +132,7 @@ public class CardGridCtrl : MonoBehaviour
         List<CardObject> icons = new List<CardObject>();
         int i = 0;
         while (i < count) {
-            flag: int rand = UnityEngine.Random.RandomRange(0, count);
+            flag: int rand = UnityEngine.Random.Range(0, count);
             if (icons.Contains(ResourceCtrl.instance.ResourceData.CardObjects[rand])) {
                 goto flag;
             }
