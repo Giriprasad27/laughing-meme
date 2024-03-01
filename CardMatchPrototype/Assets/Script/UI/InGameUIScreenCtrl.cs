@@ -54,6 +54,7 @@ public class InGameUIScreenCtrl : UIScreenBaseCtrl {
             GameController.instance.OnScoreUpdate += this.OnScoreUpdate;
         }
         this.OnScoreUpdate(0);
+        this.HeatModeObject.SetActive(false);
         this.Show();
     }
 
